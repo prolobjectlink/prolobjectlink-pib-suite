@@ -1,0 +1,610 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.prolobjectlink</groupId>
+	<artifactId>prolobjectlink-pib-suite</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>prolobjectlink-pib-suite</name>
+	<description>prolobjectlink-pib-suite</description>
+
+	<url>https://github.com/prolobjectlink/${project.name}</url>
+	<inceptionYear>2012</inceptionYear>
+
+	<organization>
+		<name>Prolobjectlink Project</name>
+		<url>https://github.com/prolobjectlink/${project.name}</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>GNU LGPL 2.1</name>
+			<url>http://www.gnu.org/licenses/lgpl-2.1.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>jzalacain</id>
+			<name>Jose Zalacain</name>
+			<email>jzalacainllanes@gmail.com</email>
+			<organization>Prolobjectlink Project</organization>
+			<organizationUrl>http://www.logicware.org</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+				<role>founder</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+	</developers>
+
+	<scm>
+		<developerConnection>scm:git:https://github.com/prolobjectlink/${project.name}.git</developerConnection>
+		<connection>scm:git:https://github.com/prolobjectlink/${project.name}.git</connection>
+		<url>https://github.com/prolobjectlink/${project.name}</url>
+
+	</scm>
+
+	<ciManagement>
+		<system>Travis CI</system>
+		<url>https://travis-ci.org/prolobjectlink/${project.name}</url>
+	</ciManagement>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/prolobjectlink/${project.name}/issues</url>
+	</issueManagement>
+
+	<repositories>
+		<repository>
+			<id>ossrh</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+		<site>
+			<id>website</id>
+			<url>dav:http://deploy.delnet.cu/webdav/sites/${project.name}</url>
+		</site>
+	</distributionManagement>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.prolobjectlink</groupId>
+			<artifactId>prolobjectlink-pib-jlog</artifactId>
+			<version>[1.0-SNAPSHOT, )</version>
+		</dependency>
+		<dependency>
+			<groupId>org.prolobjectlink</groupId>
+			<artifactId>prolobjectlink-pib-jtrolog</artifactId>
+			<version>[1.0-SNAPSHOT, )</version>
+		</dependency>
+		<dependency>
+			<groupId>org.prolobjectlink</groupId>
+			<artifactId>prolobjectlink-pib-tuprolog</artifactId>
+			<version>[1.0-SNAPSHOT, )</version>
+		</dependency>
+		<dependency>
+			<groupId>org.prolobjectlink</groupId>
+			<artifactId>prolobjectlink-pib-jiprolog</artifactId>
+			<version>[1.0-SNAPSHOT, )</version>
+		</dependency>
+		<dependency>
+			<groupId>org.prolobjectlink</groupId>
+			<artifactId>prolobjectlink-pib-jpl7-swi7</artifactId>
+			<version>[1.0-SNAPSHOT, )</version>
+		</dependency>
+		<dependency>
+			<groupId>org.prolobjectlink</groupId>
+			<artifactId>prolobjectlink-pib-jpl-swi</artifactId>
+			<version>[1.0-SNAPSHOT, )</version>
+		</dependency>
+		<dependency>
+			<groupId>org.prolobjectlink</groupId>
+			<artifactId>prolobjectlink-pib-jpl-yap</artifactId>
+			<version>[1.0-SNAPSHOT, )</version>
+		</dependency>
+		<dependency>
+			<groupId>jpl</groupId>
+			<artifactId>jpl</artifactId>
+			<version>3.1.4-alpha</version>
+		</dependency>
+		<dependency>
+			<groupId>jpl</groupId>
+			<artifactId>jpl</artifactId>
+			<version>7.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+			<version>[4.10, )</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.6</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven.wagon</groupId>
+							<artifactId>wagon-webdav-jackrabbit</artifactId>
+							<version>3.2.0</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<nohelp>true</nohelp>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<nohelp>true</nohelp>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pdf-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>site-pdf</id>
+						<phase>site</phase>
+						<goals>
+							<goal>pdf</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/doc</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assembly/dist.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>create-archive</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.1</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>
+								org.prolobjectlink.prolog.PrologBenchmarkRunner
+							</mainClass>
+						</manifest>
+						<manifestEntries>
+							<Built-By>Prolobjectlink Project</Built-By>
+						</manifestEntries>
+						<manifestSections>
+							<manifestSection>
+								<name>Prolobjectlink-JPI-Benchmark</name>
+								<manifestEntries>
+									<Specification-Title>Prolobjectlink-JPI-Benchmark Library</Specification-Title>
+									<Specification-Version>${project.version}</Specification-Version>
+									<Specification-Vendor>Prolobjectlink Project</Specification-Vendor>
+									<Implementation-Title>
+										Prolobjectlink-JPI-Benchmark</Implementation-Title>
+									<Implementation-Version>${project.version}</Implementation-Version>
+									<Implementation-Vendor>Prolobjectlink Project</Implementation-Vendor>
+								</manifestEntries>
+							</manifestSection>
+						</manifestSections>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12.4</version>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>1.16</version>
+				<configuration>
+					<canUpdateDescription>true</canUpdateDescription>
+					<failOnMissingHeader>true</failOnMissingHeader>
+					<acceptPomPackaging>true</acceptPomPackaging>
+					<licenseName>gpl_v2</licenseName>
+					<!-- <dryRun>true</dryRun> -->
+					<licenseFile>LICENSE.md</licenseFile>
+					<addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+					<roots>
+						<root>src/main</root>
+						<root>src/test</root>
+						<root>src/site</root>
+					</roots>
+				</configuration>
+				<executions>
+					<execution>
+						<id>update-file-header</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>update-file-header</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>add-license</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>update-project-license</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<!-- Creation of the bin file (bat and sh) -->
+				<!-- A filter property file must be created in src/build/filters and 
+					given for each execution -->
+				<executions>
+					<execution>
+						<!-- Create the bin for the XML Update Class -->
+						<id>createXmlUpdateBin</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/bin</outputDirectory>
+							<overwrite>true</overwrite>
+							<fileNameFiltering>true</fileNameFiltering>
+							<useBuildFilters>false</useBuildFilters>
+							<filters>
+								<filter>${project.basedir}/src/build/filters/bin.properties</filter>
+							</filters>
+							<resources>
+								<resource>
+									<filtering>true</filtering>
+									<directory>${project.basedir}/src/build/filters</directory>
+									<includes>
+										<include>*.bat</include>
+										<include>*.sh</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<threshold>Normal</threshold>
+					<effort>Default</effort>
+					<excludeFilterFile>${basedir}/findbugs-exclude-filter.xml</excludeFilterFile>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<tags>
+						<tag>TODO</tag>
+						<tag>FIXME</tag>
+					</tags>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javancss-maven-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>clirr-maven-plugin</artifactId>
+				<version>2.2.2</version>
+				<configuration>
+					<comparisonArtifacts>
+						<comparisonArtifact>
+							<groupId>commons-lang</groupId>
+							<artifactId>commons-lang</artifactId>
+							<version>2.6</version>
+						</comparisonArtifact>
+					</comparisonArtifacts>
+					<minSeverity>info</minSeverity>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.5.201505241946</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<dataFile>target/jacoco.exec</dataFile>
+							<outputDirectory>target/jacoco-ut</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<systemPropertyVariables>
+						<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.8</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+					<skipStaging>true</skipStaging>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<excludeDefaults>true</excludeDefaults>
+		<outputDirectory>${project.basedir}/doc</outputDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>summary</report>
+							<report>index</report>
+							<report>dependencies</report>
+							<report>project-team</report>
+							<report>license</report>
+							<report>scm</report>
+							<report>cim</report>
+							<report>mailing-list</report>
+							<report>issue-tracking</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.8</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.8</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<outputEncoding>${project.reporting.outputEncoding}</outputEncoding>
+				</configuration>
+			</plugin>
+			<!-- <plugin> -->
+			<!-- <groupId>org.codehaus.mojo</groupId> -->
+			<!-- <artifactId>findbugs-maven-plugin</artifactId> -->
+			<!-- <version>2.3.1</version> -->
+			<!-- </plugin> -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jdepend-maven-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<targetJdk>1.5</targetJdk>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.5.201505241946</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>2.11</version>
+				<configuration>
+					<issueLinkTemplate>%URL%/show_bug.cgi?id=%ISSUE%</issueLinkTemplate>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>changes-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<tags>
+						<tag>TODO</tag>
+						<tag>FIXME</tag>
+					</tags>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javancss-maven-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>clirr-maven-plugin</artifactId>
+				<version>2.2.2</version>
+				<configuration>
+					<comparisonArtifacts>
+						<comparisonArtifact>
+							<groupId>commons-lang</groupId>
+							<artifactId>commons-lang</artifactId>
+							<version>2.6</version>
+						</comparisonArtifact>
+					</comparisonArtifacts>
+					<minSeverity>info</minSeverity>
+				</configuration>
+			</plugin>
+			<!-- <plugin> -->
+			<!-- <artifactId>maven-surefire-report-plugin</artifactId> -->
+			<!-- <version>2.12.4</version> -->
+			<!-- </plugin> -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.codehaus.mojo</groupId> -->
+			<!-- <artifactId>versions-maven-plugin</artifactId> -->
+			<!-- <version>2.2</version> -->
+			<!-- <reportSets> -->
+			<!-- <reportSet> -->
+			<!-- <reports> -->
+			<!-- <report>dependency-updates-report</report> -->
+			<!-- <report>plugin-updates-report</report> -->
+			<!-- <report>property-updates-report</report> -->
+			<!-- </reports> -->
+			<!-- </reportSet> -->
+			<!-- </reportSets> -->
+			<!-- </plugin> -->
+		</plugins>
+	</reporting>
+
+</project>
