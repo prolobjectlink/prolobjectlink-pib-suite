@@ -19,7 +19,7 @@
  * <http://www.gnu.org/licenses/gpl-2.0.html>.
  * #L%
  */
-package org.prolobjectlink.prolog;
+package io.github.prolobjectlink.prolog;
 
 import static java.util.logging.Level.SEVERE;
 
@@ -38,6 +38,9 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
+
+import io.github.prolobjectlink.prolog.AbstractBenchmarkRunner;
+import io.github.prolobjectlink.prolog.BenchmarkResultEntry;
 
 /**
  * PrologBenchmarkRunner entry point
