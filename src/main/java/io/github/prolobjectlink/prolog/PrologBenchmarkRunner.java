@@ -33,14 +33,11 @@ import java.security.CodeSource;
 import java.security.ProtectionDomain;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
-import java.util.Map.Entry;
 import java.util.logging.Logger;
-
-import io.github.prolobjectlink.prolog.AbstractBenchmarkRunner;
-import io.github.prolobjectlink.prolog.BenchmarkResultEntry;
 
 /**
  * PrologBenchmarkRunner entry point
