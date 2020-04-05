@@ -11,5 +11,6 @@ java -classpath %CLASSPATH% io.github.prolobjectlink.prolog.tuprolog.TuPrologBen
 java -classpath %CLASSPATH% io.github.prolobjectlink.prolog.jiprolog.JiPrologBenchmarkRunner %*
 java -classpath %CLASSPATH% io.github.prolobjectlink.prolog.jpl.swi.SwiBenchmarkRunner %*
 java -classpath %CLASSPATH% io.github.prolobjectlink.prolog.jpl.yap.YapBenchmarkRunner %*
+java -classpath %CLASSPATH% io.github.prolobjectlink.prolog.ip.xsb.XsbBenchmarkRunner %*
 java -classpath %CLASSPATH% io.github.prolobjectlink.prolog.jpl.swi7.Swi7BenchmarkRunner %*
 java -classpath %CLASSPATH% io.github.prolobjectlink.prolog.PrologBenchmarkRunner %*

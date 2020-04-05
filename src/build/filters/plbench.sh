@@ -5,5 +5,6 @@ java -classpath "$(dirname "$(pwd)")/lib/*" io.github.prolobjectlink.prolog.tupr
 java -classpath "$(dirname "$(pwd)")/lib/*" io.github.prolobjectlink.prolog.jiprolog.JiPrologBenchmarkRunner ${1+"$@"}
 java -classpath "$(dirname "$(pwd)")/lib/*" io.github.prolobjectlink.prolog.jpl.swi.SwiBenchmarkRunner ${1+"$@"}
 java -classpath "$(dirname "$(pwd)")/lib/*" io.github.prolobjectlink.prolog.jpl.yap.YapBenchmarkRunner ${1+"$@"}
+java -classpath "$(dirname "$(pwd)")/lib/*" io.github.prolobjectlink.prolog.ip.xsb.XsbBenchmarkRunner %*
 java -classpath "$(dirname "$(pwd)")/lib/*" io.github.prolobjectlink.prolog.jpl.swi7.Swi7BenchmarkRunner ${1+"$@"}
 java -classpath "$(dirname "$(pwd)")/lib/*" io.github.prolobjectlink.prolog.PrologBenchmarkRunner ${1+"$@"}

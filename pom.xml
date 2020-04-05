@@ -44,7 +44,7 @@
 		<developerConnection>scm:git:https://github.com/prolobjectlink/${project.name}.git</developerConnection>
 		<connection>scm:git:https://github.com/prolobjectlink/${project.name}.git</connection>
 		<url>https://prolobjectlink.github.io/${project.name}</url>
-
+		<tag>v@{project.version}</tag>
 	</scm>
 
 	<ciManagement>
@@ -56,6 +56,23 @@
 		<system>GitHub</system>
 		<url>https://github.com/prolobjectlink/${project.name}/issues</url>
 	</issueManagement>
+	
+	<mailingLists>
+		<mailingList>
+			<name>Developer List</name>
+			<subscribe>prolobjectlink+subscribe@googlegroups.com</subscribe>
+			<unsubscribe>prolobjectlink+unsubscribe@googlegroups.com</unsubscribe>
+			<post>prolobjectlink@googlegroups.com</post>
+			<archive>http://groups.google.com/group/prolobjectlink</archive>
+		</mailingList>
+		<mailingList>
+			<name>Users List</name>
+			<subscribe>prolobjectlink+subscribe@googlegroups.com</subscribe>
+			<unsubscribe>prolobjectlink+unsubscribe@googlegroups.com</unsubscribe>
+			<post>prolobjectlink@googlegroups.com</post>
+			<archive>http://groups.google.com/group/prolobjectlink</archive>
+		</mailingList>
+	</mailingLists>
 
 	<repositories>
 		<repository>
@@ -78,7 +95,7 @@
 		</snapshotRepository>
 		<repository>
 			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/release/</url>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 		<site>
 			<id>website</id>
@@ -128,6 +145,11 @@
 		<dependency>
 			<groupId>io.github.prolobjectlink</groupId>
 			<artifactId>prolobjectlink-pib-jpl-yap</artifactId>
+			<version>[1.0-SNAPSHOT, )</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.prolobjectlink</groupId>
+			<artifactId>prolobjectlink-pib-ip-xsb</artifactId>
 			<version>[1.0-SNAPSHOT, )</version>
 		</dependency>
 		<dependency>
@@ -460,6 +482,20 @@
 						<phase>verify</phase>
 						<goals>
 							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.1</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
 						</goals>
 					</execution>
 				</executions>
